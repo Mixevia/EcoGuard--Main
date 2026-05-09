@@ -1,0 +1,8 @@
+{
+  "name": "EcoGuard UG",
+  "description": "Uganda's comprehensive environmental monitor and reporting platform.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}

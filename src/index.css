@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-background: var(--on-background);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-uganda-gold: #f5a623;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-accent-green: #3DDB85;
+}
+
+@layer base {
+  :root {
+    --primary: #006054;
+    --primary-container: #0f7b6c;
+    --on-primary-container: #b5ffef;
+    --secondary: #835500;
+    --secondary-container: #feae2c;
+    --on-secondary-container: #6b4500;
+    --tertiary: #86422c;
+    --surface: #f6faf8;
+    --on-surface: #181d1b;
+    --on-surface-variant: #3e4946;
+    --on-background: #181d1b;
+    --surface-container: #ebefec;
+    --surface-container-low: #f1f4f2;
+    --surface-container-lowest: #ffffff;
+    --outline: #6e7976;
+    --outline-variant: #bdc9c5;
+  }
+
+  :root.dark {
+    --primary: #7cd7c5;
+    --primary-container: #005046;
+    --on-primary-container: #b5ffef;
+    --surface: #0a0e0d;
+    --on-surface: #eef2ef;
+    --on-surface-variant: #bdc9c5;
+    --on-background: #eef2ef;
+    --surface-container: #1b211f;
+    --surface-container-low: #141917;
+    --surface-container-lowest: #0d1210;
+    --outline: #8e9996;
+    --outline-variant: #3e4946;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+}
+
+/* Hide scrollbars globally */
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pulse-dot {
+  position: relative;
+}
+
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(2); opacity: 0; }
+}
